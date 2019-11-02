@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h1>{{role}}</h1>
+  {% for character in characters %}
+  <hr>
+    {% if role == '생존자' %}
+      <a href="">{{character.role}}</a>
+    {% else %}
+      <a href="">{{character.role}}</a>
+    {% endif %}
+  {% endfor %}
+  <hr>
+{% endblock %}

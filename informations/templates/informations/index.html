@@ -2,6 +2,6 @@
 
 {% block body %}
   <h1>index</h1>
-  <a href="">생존자</a>
-  <a href="">감시자</a>
+  <a href="{% url 'informations:survivor_list' %}">생존자</a>
+  <a href="{% url 'informations:hunter_list' %}">감시자</a>
 {% endblock %}
