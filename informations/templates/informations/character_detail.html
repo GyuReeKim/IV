@@ -4,4 +4,20 @@
   <h3>{{character.name}}</h3>
   <h3>{{character.role}}</h3>
   <h5>{{character.rumor}}</h5>
+  <p>{{character.like_users.count}}명이 추천합니다.</p>
+  {% if user.is_authenticated %}
+    {% if role == '생존자' %}
+      {% if user in character.like_users.all %}
+        <a href="{% url 'informations:survivor_like' character.id %}">좋아요 취소</a>
+      {% else %}
+        <a href="{% url 'informations:survivor_like' character.id %}">좋아요</a>
+      {% endif %}
+    {% else %}
+      {% if user in character.like_users.all %}
+        <a href="{% url 'informations:hunter_like' character.id %}">좋아요 취소</a>
+      {% else %}
+        <a href="{% url 'informations:hunter_like' character.id %}">좋아요</a>
+      {% endif %}
+    {% endif %}
+  {% endif %}
 {% endblock %}
