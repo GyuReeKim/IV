@@ -5,9 +5,9 @@
   {% for character in characters %}
   <hr>
     {% if role == '생존자' %}
-      <a href="">{{character.role}}</a>
+      <a href="{% url 'informations:survivor_detail' character.id %}">{{character.role}}</a>
     {% else %}
-      <a href="">{{character.role}}</a>
+      <a href="{% url 'informations:hunter_detail' character.id %}">{{character.role}}</a>
     {% endif %}
   {% endfor %}
   <hr>
